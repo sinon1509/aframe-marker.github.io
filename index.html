@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Test marker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover, shrink-to-fit=no" />
+    <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
+<!--    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>-->
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
+</head>
+<body>
+    <a-scene embedded arjs='sourceType: webcam;' renderer='antialias: true; alpha: true; precision: medium;'>
+        <a-marker
+            type="pattern"
+            preset="custom"
+            url="marker/onetech-marker.patt"
+        >
+            <a-box
+                   material="color: red; transparent: true; opacity: 0.50;">
+            </a-box>
+        </a-marker>
+    </a-scene>
+</body>
+</html>
