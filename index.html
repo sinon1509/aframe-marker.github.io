@@ -1,25 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Test marker</title>
-<!--    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover, shrink-to-fit=no" />-->
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover, shrink-to-fit=no" />
     <script src="https://aframe.io/releases/1.3.0/aframe.min.js"></script>
-<!--    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>-->
+    <!--    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>-->
     <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
 </head>
+
 <body style="margin: 0px; overflow: hidden">
+    <script>
+        AFRAME.registerComponent("click-log", {
+            init: function () {
+                let el = this.el;
+                el.addEventListener("click", (e) => {
+                    console.log("on click")
+                })
+            }
+        });
+
+        AFRAME.registerComponent("click-link", {
+            init: function () {
+                let linkBtn = this.el;
+                linkBtn.addEventListener("click", function (e) {
+                    let linkId = e.srcElement.id;
+
+                    console.log(linkId);
+                    if (linkId == "home-pg") {
+                        window.open("https://onetech.jp/", "_blank");
+                    }
+                    if (linkId == "youtube") {
+                        window.open("https://www.youtube.com/channel/UCbcZlVQ7NAm8vnOFxnd0Ovg/videos", "_blank");
+                    }
+                });
+            }
+        })
+    </script>
     <a-scene embedded vr-mode-ui="enabled: false" arjs renderer='antialias: true; alpha: true; precision: medium;'>
-        <a-marker
-            type="pattern"
-            preset="custom"
-            url="marker/onetech-marker.patt"
-        >
-            <a-box position="0 0 0"
-                   material="color: red; transparent: true; opacity: 0.50;">
+        <a-entity cursor="rayOrigin: mouse" raycaster="objects: .collidable"></a-entity>
+
+        <a-marker type="pattern" preset="custom" url="marker/onetech-marker.patt">
+            <a-box id="home-pg" class="collidable" position="0 0 0"
+                material="color: red; transparent: true; opacity: 0.50;" click-link>
             </a-box>
+
+            <a-box id="youtube" class="collidable" position="2 0 0"
+                material="color: blue; transparent: true; opacity: 0.50;" click-link>
+            </a-box>
+            </a-entity>
         </a-marker>
         <a-entity camera></a-entity>
     </a-scene>
 </body>
+
 </html>
