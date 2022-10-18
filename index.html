@@ -51,6 +51,7 @@
                 marker.addEventListener("markerFound",(e)=>{
                     console.log("marker found")
                     var v = document.querySelector('#videoId');
+                    v.currentTime = 0;
                     v.play();
                 })
 
