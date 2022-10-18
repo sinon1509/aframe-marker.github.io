@@ -38,10 +38,10 @@
                 });
             }
         })
-        window.addEventListener('click', function () {
-            var v = document.querySelector('#videoId');
-            v.play();
-        });
+        // window.addEventListener('click', function () {
+        //     var v = document.querySelector('#videoId');
+        //     v.play();
+        // });
     </script>
     <a-scene embedded arjs>
         <!-- <a-scene embedded vr-mode-ui="enabled: false" arjs renderer='antialias: true; alpha: true; precision: medium;'> -->
@@ -49,7 +49,7 @@
         <!-- <a-camera><a-cursor></a-cursor></a-camera> -->
 
         <a-assets>
-            <video id="videoId" src="videos/AlphaTestVideo.webm" autoplay loop="true" muted="true"></video>
+            <video id="videoId" src="videos/AlphaTestVideo.webm" autoplay loop="true"></video>
         </a-assets>
         <a-marker type="pattern" preset="custom" url="marker/onetech-marker.patt">
             <!-- <a-box id="home-pg" class="collidable" position="0 0 0"
