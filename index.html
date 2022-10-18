@@ -38,12 +38,36 @@
                 });
             }
         })
+        AFRAME.registerComponent("force-play",{
+            tick: function(){
+                var v = document.querySelector('#videoId');
+                v.play();
+            }
+        })
+
+        AFRAME.registerComponent("marker-event",{
+            init: function(){
+                var marker = document.querySelector('a-marker');
+                marker.addEventListener("markerFound",(e)=>{
+                    console.log("marker found")
+                    var v = document.querySelector('#videoId');
+                    v.play();
+                })
+
+                marker.addEventListener("markerLost",(e)=>{
+                    console.log("marker lost")
+                    var v = document.querySelector('#videoId');
+                    v.pause();
+                })
+            }
+        })
+
         window.addEventListener('click', function () {
             var v = document.querySelector('#videoId');
             v.play();
         });
     </script>
-    <a-scene embedded arjs>
+    <a-scene embedded arjs >
         <!-- <a-scene embedded vr-mode-ui="enabled: false" arjs renderer='antialias: true; alpha: true; precision: medium;'> -->
         <!-- <a-entity cursor="rayOrigin: mouse" cursor="rayOrigin: mouse" raycaster="objects: .collidable"></a-entity> -->
         <!-- <a-camera><a-cursor></a-cursor></a-camera> -->
@@ -51,7 +75,7 @@
         <a-assets>
             <video id="videoId" src="videos/AlphaTestVideo.webm" autoplay loop="true" muted="true"></video>
         </a-assets>
-        <a-marker type="pattern" preset="custom" url="marker/onetech-marker.patt">
+        <a-marker type="pattern" preset="custom" url="marker/onetech-marker.patt" marker-event>
             <!-- <a-box id="home-pg" class="collidable" position="0 0 0"
                 material="color: red; transparent: true; opacity: 0.50;" click-link>
             </a-box>
