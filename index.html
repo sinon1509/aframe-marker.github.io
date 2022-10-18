@@ -40,20 +40,23 @@
         })
     </script>
     <a-scene embedded vr-mode-ui="enabled: false" arjs renderer='antialias: true; alpha: true; precision: medium;'>
-        <!-- <a-entity cursor="rayOrigin: mouse" raycaster="objects: .collidable"></a-entity> -->
+        <!-- <a-entity cursor="rayOrigin: mouse" cursor="rayOrigin: mouse" raycaster="objects: .collidable"></a-entity> -->
         <!-- <a-camera><a-cursor></a-cursor></a-camera> -->
 
-        <a-marker type="pattern" preset="custom" url="marker/onetech-marker.patt">
-            <a-box id="home-pg" class="collidable" position="0 0 0"
+        <a-assets>
+            <video id="videoId" src="videos/AlphaTestVideo.webm" autoplay loop="true"></video>
+          </a-assets>
+        <a-marker type="pattern" preset="custom" url="marker/onetech-marker.patt" >
+             <!-- <a-box id="home-pg" class="collidable" position="0 0 0"
                 material="color: red; transparent: true; opacity: 0.50;" click-link>
             </a-box>
 
-            <a-box id="youtube" class="collidable" position="2 0 0"
+            <a-box id="youtube" class="collidable" position="1 0 0"
                 material="color: blue; transparent: true; opacity: 0.50;" click-link>
-            </a-box>
-            </a-entity>
+            </a-box> -->
+            <a-video id = "vid"  rotation =  "0 0 0"  scale="5 5 1" src="#videoId">
         </a-marker>
-        <a-entity camera><a-cursor></a-cursor></a-entity>
+        <a-entity camera ></a-entity>
     </a-scene>
 </body>
 
