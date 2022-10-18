@@ -39,7 +39,8 @@
             }
         })
     </script>
-    <a-scene embedded vr-mode-ui="enabled: false" arjs renderer='antialias: true; alpha: true; precision: medium;'>
+    <a-scene>
+    <!-- <a-scene embedded vr-mode-ui="enabled: false" arjs renderer='antialias: true; alpha: true; precision: medium;'> -->
         <!-- <a-entity cursor="rayOrigin: mouse" cursor="rayOrigin: mouse" raycaster="objects: .collidable"></a-entity> -->
         <!-- <a-camera><a-cursor></a-cursor></a-camera> -->
 
@@ -54,9 +55,9 @@
             <a-box id="youtube" class="collidable" position="1 0 0"
                 material="color: blue; transparent: true; opacity: 0.50;" click-link>
             </a-box> -->
-            <a-video id = "vid"  rotation = "0 0 0"  scale="1 1 1" src="#videoId">
+            <a-video id = "vid"  rotation =  "-62.584 -3.936 4.509"  scale="5 5 1" src="#videoId">
         </a-marker>
-        <a-entity camera ></a-entity>
+        <!-- <a-entity camera ></a-entity> -->
     </a-scene>
 </body>
 
